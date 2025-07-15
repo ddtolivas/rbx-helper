@@ -126,4 +126,66 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 }
+/* Glowing button effect */
+.compile-button {
+  background: linear-gradient(135deg, #4CAF50, #2ecc71);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #4CAF50;
+  transition: all 0.3s ease;
+}
+
+.compile-button:hover {
+  box-shadow: 0 0 25px #2ecc71, 0 0 50px #4CAF50;
+  transform: scale(1.05);
+}
+
+/* Modal fade-in animation */
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  position: relative;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 0 30px rgba(0, 255, 100, 0.4);
+  animation: glowIn 0.4s ease forwards;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes glowIn {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(0, 255, 100, 0);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 30px rgba(0, 255, 100, 0.4);
+  }
+}
 
