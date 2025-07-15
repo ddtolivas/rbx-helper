@@ -278,3 +278,15 @@ styleSheet.innerText = `
   letter-spacing: 1px;
 }`;
 document.head.appendChild(styleSheet);
+function closeModal(id) {
+  const modal = document.getElementById(id);
+  if (!modal) return;
+
+  const modalContent = modal.querySelector('.modal-content');
+  if (modalContent) modalContent.style.animation = 'glowIn reverse 0.4s';
+
+  setTimeout(() => {
+    modal.style.display = 'none';
+  }, 400);
+}
+
