@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RBXHelper - ReCompiler</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+  <img src="logo.png" alt="RBXHelper Logo" class="logo">
+
+  <div class="description-text" id="instructions">
+    Press on the "Compile Item" button to compile your item. Once you have your PowerShell copied, you can paste it and hit "Enter" to check.
+  </div>
+
+  <div class="video-section">
+    <div class="tutorial-video">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/2Tz2mrEHORU?modestbranding=1" allowfullscreen></iframe>
+    </div>
+
+    <div class="compile-avatar-button">
+      <button id="enterButton" class="compile-button">Compile Item</button>
+    </div>
+  </div>
+
+  <div class="footer-buttons">
+    <button class="footer-btn" onclick="openModal('faqModal')">FAQ</button>
+    <div class="divider"></div>
+    <button class="footer-btn" onclick="openModal('aboutModal')">About</button>
+    <div class="divider"></div>
+    <button class="footer-btn" onclick="openModal('tosModal')">TOS</button>
+  </div>
+</div>
+
+<!-- Compile PowerShell Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content compile-modal-glow">
+    <span class="close" onclick="closeModal('modal')">&times;</span>
+    <h2 id="modal-title">Compile Item</h2>
+    <textarea id="powershellInput" placeholder="Enter PowerShell here"></textarea>
+    <button id="submitButton" type="button">Enter</button>
+  </div>
+</div>
+
+<!-- Other Modals and Error Alert (same as before) -->
+<div id="error-alert" class="alert-box error-alert" style="display:none;">
+  Cannot Compile Item. Try again!
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+<!-- FAQ Modal -->
+<div id="faqModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('faqModal')">&times;</span>
+    <h2>FAQ</h2>
+    <p><strong>Q:</strong> What does RBXHelper do?<br><strong>A:</strong> It helps you compile your Roblox avatar and extract important data easily.</p>
+    <p><strong>Q:</strong> Is it free to use?<br><strong>A:</strong> Yes, RBXHelper is completely free to use.</p>
+  </div>
+</div>
+
+<!-- About Modal -->
+<div id="aboutModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('aboutModal')">&times;</span>
+    <h2>About</h2>
+    <p>RBXHelper was created to simplify compiling Roblox avatars and provide better user insights through easy-to-use tools.</p>
+  </div>
+</div>
+
+<!-- TOS Modal -->
+<div id="tosModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('tosModal')">&times;</span>
+    <h2>Terms of Service</h2>
+    <p>By using RBXHelper, you agree not to misuse this tool in any illegal or unauthorized way.</p>
+  </div>
+</div>
