@@ -120,3 +120,10 @@ textarea {
   margin-top: 20px;
   border-radius: 6px;
 }
+body {
+  background-image: url('background.png'); /* Replace with your image filename or full URL */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
